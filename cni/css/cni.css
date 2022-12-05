@@ -1,0 +1,65 @@
+@font-face {
+    font-family: justsignature;
+    src: url('../fonts/justsignature/JustSignature.woff');
+  }
+  
+body{
+    background-image: url('../images/cni.jpg');
+    background-repeat:no-repeat;
+    background-size: 500px;
+    }
+.dob{
+    position: absolute;
+    top: 136px; left: 340px;
+}
+.sexe{
+    position: absolute;
+    top: 136px; left: 205px;
+}
+.signature {
+    position: absolute;
+    top: 200px;
+    left: 232px;
+    color: #413a3a;
+    font-size: 19px;
+    text-transform:capitalize;
+    font-weight: 1000;
+    font-family: justsignature;
+  }
+.photo {
+    position: absolute;
+    top: 80px; left: 20px;
+    height: 185px;
+    width: 140px;
+  }
+  .no{
+    position: absolute;
+    top: 45px; left: 230px;
+}
+.ville{
+    font-weight: bold;
+    position: absolute;
+    top: 155px; left: 185px;
+}
+.taille{
+    font-weight: bold;
+    position: absolute;
+    top: 170px; left: 200px;
+}
+.nom{
+    position: absolute;
+    top: 68px; left: 205px;
+}
+.prenom{
+    position: absolute;
+    top: 102px; left: 225px;
+}
+.idf{
+    position: absolute;
+    top: 256px; left: 35px;
+}
+.fin{
+    font-size: larger;
+    position: absolute;
+    top: 280px; left: 35px;
+}
