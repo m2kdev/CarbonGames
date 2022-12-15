@@ -3,7 +3,7 @@
 
 
 <head>
-	<title>Login V17</title>
+	<title>Ledeepcoin - Se connecter</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -34,7 +34,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="verif.php">
+				<form class="login100-form validate-form" method="POST" action="..\..\api\actions\connectUser.php">
 					<span class="login100-form-title p-b-34">
 						Se connecter a son compte DeepCoin
 					</span>
@@ -44,7 +44,7 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-						<input class="input100" type="password" name="pswd" placeholder="Mot de passe">
+						<input class="input100" type="password" name="password" placeholder="Mot de passe">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -54,15 +54,20 @@
 						</button>
 					</div>
 					<?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==1 )
-                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
-					elseif($err==2)
-					echo "<p style='color:red'>Merci de ramplir les champs</p>";
-					elseif($err==3)
-					echo "<p style='color:aqua'>Compte créé! vous pouvez maintenant vous connecter</p>";
-                }
+					session_start();
+                if(isset($_SESSION['result']['success'])){
+					if($_SESSION['result']['success']==false){
+                    $err = $_SESSION['result']['error'];
+                    echo $err ;
+					
+				}else  {
+					echo $_SESSION['user']['mail'];
+				};
+				unset($_SESSION['result']);
+                }elseif(isset($_SESSION['created'])) {
+					echo "Votre compte a été créé, vous pouvez maintenant vous connecter !";
+					unset($_SESSION['created']);
+				};
                 ?>
 
 					<div class="w-full text-center" style="margin-top:5% ; margin-bottom:50%">

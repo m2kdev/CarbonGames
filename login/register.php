@@ -34,7 +34,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="reg.php">
+				<form class="login100-form validate-form" method="POST" action="..\..\api\actions\createAccount.php">
 					<span class="login100-form-title p-b-34">
 						Créer un compte
 					</span>
@@ -44,7 +44,7 @@
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Mot de passe">
-						<input class="input100" type="password" name="pswd" placeholder="Mot de passe">
+						<input class="input100" type="password" name="password" placeholder="Mot de passe">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -64,10 +64,16 @@
 						</button>
 					</div>
 					<?php
-	         if(isset($erreur)) {
-	            echo '<font color="red">'.$erreur."</font>";
-	         }
-	         ?>
+					session_start();
+                if(isset($_SESSION['result']['success'])) {
+					if($_SESSION['result']['success']==false){
+                    $err = $_SESSION['result']['error'];
+                    echo $err ;
+
+				};
+				unset($_SESSION['result']);
+                }
+                ?>
 				</form>
 
 				<div class="login100-more" style="background-image: url('images/icon.png');"></div>
