@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 	<html lang="fr">
 <head>
@@ -35,17 +37,6 @@
 <body data-spy="scroll" data-target="#mynav" data-offset="85">
 
 
-	<div id="preloader">
-		<div id="status">
-			<div class="spinner">
-				  <div class="rect1"></div>
-				  <div class="rect2"></div>
-				  <div class="rect3"></div>
-				  <div class="rect4"></div>
-				  <div class="rect5"></div>
-			</div>
-		</div>
-		</div>
 		
 <header>
 	<img src="images/if.png" srcset="images/if.png 200w" alt="logo" sizes="(min-width: 200px) 50px, 50vw" ></img>
@@ -70,7 +61,12 @@
 							<li><a href="#contact">Contact</a></li>
 							<li><a href="#works">Catalogue</a></li>
 							<li><a href="#pricing">Forfaits</a></li>
-						<li><a href="login/login.php">Se connecter</a></li>					
+						<li><a href="login/login.php">Se connecter<?php 
+						if(isset($_SESSION['user'])) {
+							echo $_SESSION['user']['username'];
+
+						};
+						?></a></li>					
 						</ul>
 					</div>		
 				</div>
